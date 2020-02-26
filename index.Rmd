@@ -22,6 +22,6 @@ You can also embed plots, for example:
 par(mai=c(1,1.5,1,1))
 par(bg = 'grey')
 barplot(track_length, main="Songs vs Length",xlab = "Length", horiz=TRUE,
-  names.arg=track_names, col = 'red', las = 1)
+  names.arg=rev(track_names), col = 'red', las = 1)
 
 ```
