@@ -1,0 +1,27 @@
+---
+title: "index"
+author: "Adam"
+date: "2/25/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+source("Analysis.R")
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+You have requested information about the album: `r album_name`. This album has `r length(track_names)` songs. 
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+# Simple Horizontal Bar Plot with Added Labels
+par(mai=c(1,1.5,1,1))
+par(bg = 'grey')
+barplot(track_length, main="Songs vs Length",xlab = "Length", horiz=TRUE,
+  names.arg=track_names, col = 'red', las = 1)
+
+```
