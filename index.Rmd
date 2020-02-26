@@ -25,3 +25,17 @@ barplot(track_length, main="Songs vs Length",xlab = "Length", horiz=TRUE,
   names.arg=rev(track_names), col = 'red', las = 1)
 
 ```
+
+```{r newPlot}
+ggplot(data=album_df, aes(x=track_names, y=track_length)) +
+  ggtitle("Songs vs length")+
+    annotation_custom(rasterGrob(album_cover, 
+                               width = unit(1,"npc"), 
+                               height = unit(1,"npc")), 
+                               -Inf, Inf, -Inf, Inf)+
+  geom_bar(stat="identity", position = "dodge", colour = 'white', alpha = 1) +
+
+   coord_flip() 
+
+   
+```

@@ -2,7 +2,9 @@
 rm(list = ls())
 
 library(spotifyr)
-
+library(ggplot2)
+library(jpeg)
+library(grid)
 Sys.setenv(SPOTIFY_CLIENT_ID = 'f6820550957141d6944de1b897b9d388')
 Sys.setenv(SPOTIFY_CLIENT_SECRET = 'f630c4928be64641a3424cc352834299')
 
@@ -14,3 +16,5 @@ album_name <- album[["name"]]
 track_names <- album[["tracks"]][["items"]][["name"]]
 
 track_length <- album[["tracks"]][["items"]][["duration_ms"]]
+album_df <- data.frame("track_length" = track_length, "track_names" = track_names)
+album_cover <- jpeg::readJPEG("test.jpg")
