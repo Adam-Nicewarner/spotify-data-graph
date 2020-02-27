@@ -22,18 +22,19 @@ You can also embed plots, for example:
 par(mai=c(1,1.5,1,1))
 par(bg = 'grey')
 barplot(track_length, main="Songs vs Length",xlab = "Length", horiz=TRUE,
-  names.arg=rev(track_names), col = 'red', las = 1)
+  names.arg=track_names, col = 'red', las = 1)
 
 ```
 
 ```{r newPlot}
-ggplot(data=album_df, aes(x=track_names, y=track_length)) +
+ggplot(data=album_df, aes(x=rev(factor(track_names, track_names)), y=track_length)) +
   ggtitle("Songs vs length")+
     annotation_custom(rasterGrob(album_cover, 
                                width = unit(1,"npc"), 
                                height = unit(1,"npc")), 
                                -Inf, Inf, -Inf, Inf)+
-  geom_bar(stat="identity", position = "stack", colour = 'black', alpha = 0.5, width = 1) +
+  geom_bar(stat="identity", position = "identity", color = 'white', alpha = 1, width = 1, fill = 'white') +
+
    coord_flip() 
 
    
