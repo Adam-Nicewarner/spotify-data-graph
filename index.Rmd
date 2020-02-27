@@ -33,8 +33,7 @@ ggplot(data=album_df, aes(x=track_names, y=track_length)) +
                                width = unit(1,"npc"), 
                                height = unit(1,"npc")), 
                                -Inf, Inf, -Inf, Inf)+
-  geom_bar(stat="identity", position = "dodge", colour = 'white', alpha = 1) +
-
+  geom_bar(stat="identity", position = "stack", colour = 'black', alpha = 0.5, width = 1) +
    coord_flip() 
 
    

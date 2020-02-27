@@ -16,5 +16,6 @@ album_name <- album[["name"]]
 track_names <- album[["tracks"]][["items"]][["name"]]
 
 track_length <- album[["tracks"]][["items"]][["duration_ms"]]
+track_length <- max(track_length) - track_length
 album_df <- data.frame("track_length" = track_length, "track_names" = track_names)
 album_cover <- jpeg::readJPEG("test.jpg")
