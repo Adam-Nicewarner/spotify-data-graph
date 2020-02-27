@@ -13,27 +13,15 @@ knitr::opts_chunk$set(echo = TRUE)
 ## R Markdown
 You have requested information about the album: `r album_name`. This album has `r length(track_names)` songs. 
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-# Simple Horizontal Bar Plot with Added Labels
-par(mai=c(1,1.5,1,1))
-par(bg = 'grey')
-barplot(track_length, main="Songs vs Length",xlab = "Length", horiz=TRUE,
-  names.arg=track_names, col = 'red', las = 1)
-
-```
-
 ```{r newPlot}
-ggplot(data=album_df, aes(x=rev(factor(track_names, track_names)), y=track_length)) +
+ggplot(data=album_df, aes(x=rev(factor(track_names, track_names)), y=-1 * track_length)) +
   ggtitle("Songs vs length")+
     annotation_custom(rasterGrob(album_cover, 
                                width = unit(1,"npc"), 
                                height = unit(1,"npc")), 
                                -Inf, Inf, -Inf, Inf)+
   geom_bar(stat="identity", position = "identity", color = 'white', alpha = 1, width = 1, fill = 'white') +
+    scale_y_continuous(expand = c(0, 0), limits = c(-1 * max_track, 0)) +
 
    coord_flip() 
 
